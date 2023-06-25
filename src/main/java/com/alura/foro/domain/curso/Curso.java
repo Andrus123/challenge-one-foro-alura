@@ -1,16 +1,35 @@
-package com.alura.modelo;
+package com.alura.foro.domain.curso;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Table(name = "cursos")
+@Entity(name = "Curso")
 public class Curso {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nombre;
 	private String categoria;
 
-	public Curso(String nombre, String categoria) {
-		this.nombre = nombre;
-		this.categoria = categoria;
+	public Curso(DatosCurso curso) {
+		this.id = curso.id();
+		this.nombre = curso.nombre();
+		this.categoria = curso.categoria();
 	}
-	
+
+	public Curso(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public Curso() {
+		super();
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -60,4 +79,10 @@ public class Curso {
 		this.categoria = categoria;
 	}
 
+	public Curso actualizarDatos(Curso curso) {
+		this.id = curso.id;
+		this.nombre = curso.nombre;
+		this.categoria = curso.categoria;
+		return this;
+	}
 }

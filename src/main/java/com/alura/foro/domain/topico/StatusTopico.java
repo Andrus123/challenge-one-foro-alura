@@ -1,4 +1,4 @@
-package com.alura.modelo;
+package com.alura.foro.domain.topico;
 
 public enum StatusTopico {
 	
@@ -6,5 +6,4 @@ public enum StatusTopico {
 	NO_SOLUCIONADO,
 	SOLUCIONADO,
 	CERRADO;
-
 }
